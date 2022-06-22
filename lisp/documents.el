@@ -3,6 +3,7 @@
 ;; --- ORG MODE ---
 ;; org-mode is fantastic as well. I keep things close to default.
 (use-package org
+  :pin gnu
   :bind (("C-c l" . org-stored-link)
          ("C-c a" . org-agenda)
          ("C-c c" . org-capture))
@@ -45,6 +46,12 @@
     (python . t)
     (scheme . t)
     (gnuplot . t)))
+
+;; org-journal
+(use-package org-journal
+  :config
+  (setq org-journal-dir "~/journal/")
+  (setq org-journal-encrypt-journal t))
 
 ;; read pdfs in emacs but better
 
