@@ -1,5 +1,5 @@
 ;;; appearance.el -*- lexical-binding: t; -*-
-;; Appeara related config
+;; Appearance related config
 
 ;; Minor display changes
 (setq display-line-numbers-type "relative")
@@ -8,7 +8,7 @@
 (scroll-bar-mode -1)
 (setq fill-column 80)
 (setq-default line-spacing 1)
-(set-face-attribute 'default nil :height 120)
+(set-face-attribute 'default nil :height 160)
 (setq enable-recursive-minibuffers t)
 
 ;; Laptop Power monitor
@@ -20,4 +20,17 @@
 (setq ring-bell-function 'ignore); NEVER RING THE BELL
 
 ;; Modus Theme
-(load-theme 'modus-operandi)
+(use-package modus-themes)
+(load-theme 'modus-operandi t)
+
+;; transpose-frame
+(use-package transpose-frame)
+
+;; modeline
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
+
+;; ansi-colors in comint buffers
+(require 'ansi-color)
+(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
